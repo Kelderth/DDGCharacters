@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  CharactersByImageViewController.swift
 //  DDG Characters
 //
 //  Created by MCS on 12/18/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class CharactersByImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

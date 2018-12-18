@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  CharactersByNameViewControllerViewController.swift
 //  DDG Characters
 //
 //  Created by MCS on 12/18/18.
@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class CharactersByNameViewController: UIViewController {
 
+    //MARK: Properties
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
