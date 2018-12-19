@@ -23,7 +23,7 @@ class CharacterTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setup(character: Character) {
+    func setup(character: CharacterSource) {
         self.characterLabel.text = character.characterName
     }
     

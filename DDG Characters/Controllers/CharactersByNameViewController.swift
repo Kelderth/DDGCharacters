@@ -12,7 +12,7 @@ class CharactersByNameViewController: UIViewController {
 
     //MARK: Properties
     let DDGRequest: DDGApiService = DDGApiService()
-    var characterSource: [Character] = [Character]()
+    var characterSource: [CharacterSource] = [CharacterSource]()
     
     //MARK: Properties.
     @IBOutlet weak var tableView: UITableView!

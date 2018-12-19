@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-typealias requestSuccessful = ([Character]) -> ()
+typealias requestSuccessful = ([CharacterSource]) -> ()
 typealias requestUnsuccessful = () -> ()
 
 class DDGApiService {
@@ -32,7 +32,7 @@ class DDGApiService {
                 let numberOfEntries = json["RelatedTopics"].count
                 let defaultDirectory = json["RelatedTopics"]
                 
-                var characterList: [Character] = [Character]()
+                var characterList: [CharacterSource] = [CharacterSource]()
                 
                 for characterIndex in 0 ..< numberOfEntries {
                     let fullDescription = defaultDirectory[characterIndex]["Text"].string!
@@ -43,9 +43,9 @@ class DDGApiService {
                     let favorited = false
                     let pictureImage: UIImage? = nil
                     
-                    let character = Character(characterName: characterName, characterDetail: characterDetail, pictureURL: pictureURL, pictureData: pictureImage, favorited: favorited)
+//                    let character = CharacterSource(characterName: characterName, characterDetail: characterDetail, pictureURL: pictureURL, pictureData: pictureImage, favorited: favorited)
                     
-                    characterList.append(character)
+//                    characterList.append(character)
                 }
                 
                 self.success(characterList)
