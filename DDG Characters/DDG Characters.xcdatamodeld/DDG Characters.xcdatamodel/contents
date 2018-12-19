@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
+    <entity name="CharacterSource" representedClassName="CharacterSource" syncable="YES" codeGenerationType="class">
+        <attribute name="characterDetail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="characterName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favorited" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pictureData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="pictureURL" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Entity" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="CharacterSource" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>
