@@ -13,6 +13,7 @@ class CharactersByNameViewController: UIViewController {
     //MARK: Properties
     let DDGRequest: DDGApiService = DDGApiService()
     var characterSource: [CharacterSource] = [CharacterSource]()
+    var dataManager = DDGPersistence()
     
     //MARK: Properties.
     @IBOutlet weak var tableView: UITableView!
@@ -23,20 +24,30 @@ class CharactersByNameViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        DDGRequest.serviceRequest()
+//        DDGRequest.serviceRequest(onSuccess: <#requestSuccessful#>)
         
         setupApiRequest()
     }
 
     func setupApiRequest() {
-        let success : requestSuccessful = { [unowned self] Character in
-            DispatchQueue.main.async {
-                self.characterSource = Character
+        characterSource = dataManager.readData()
+        
+        if characterSource.count == 0 {
+            DDGRequest.serviceRequest() {
+                self.characterSource = self.dataManager.readData()
                 self.tableView.reloadData()
             }
         }
+        
+        
+//        let success : requestSuccessful = { [unowned self] CharacterSource in
+//            DispatchQueue.main.async {
+//                self.characterSource = CharacterSource
+//                self.tableView.reloadData()
+//            }
+//        }
     
-        DDGRequest.success = success
+//        DDGRequest.success = success
     }
 
 }

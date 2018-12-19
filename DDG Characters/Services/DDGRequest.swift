@@ -10,15 +10,16 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-typealias requestSuccessful = ([CharacterSource]) -> ()
+typealias requestSuccessful = () -> ()
 typealias requestUnsuccessful = () -> ()
 
 class DDGApiService {
     
     var success: requestSuccessful!
     var fail: requestUnsuccessful!
+    let dataManager: DDGPersistence = DDGPersistence()
     
-    func serviceRequest() {
+    func serviceRequest(onSuccess: @escaping requestSuccessful) {
 
         // LooneyTunes - DuckDuckGo API EndPoint
         let url = "https://api.duckduckgo.com/?q=looney+tunes+characters&format=json"
@@ -32,7 +33,7 @@ class DDGApiService {
                 let numberOfEntries = json["RelatedTopics"].count
                 let defaultDirectory = json["RelatedTopics"]
                 
-                var characterList: [CharacterSource] = [CharacterSource]()
+//                var characterList: [CharacterSource] = [CharacterSource]()
                 
                 for characterIndex in 0 ..< numberOfEntries {
                     let fullDescription = defaultDirectory[characterIndex]["Text"].string!
@@ -41,14 +42,11 @@ class DDGApiService {
                     let characterDetail = fullDetails[1]
                     let pictureURL = defaultDirectory[characterIndex]["Icon"]["URL"].string!
                     let favorited = false
-                    let pictureImage: UIImage? = nil
                     
-//                    let character = CharacterSource(characterName: characterName, characterDetail: characterDetail, pictureURL: pictureURL, pictureData: pictureImage, favorited: favorited)
-                    
-//                    characterList.append(character)
+                    self.dataManager.writeData(characterName: characterName, characterDetail: characterDetail, pictureURL: pictureURL, favorited: favorited)
                 }
                 
-                self.success(characterList)
+                onSuccess()
                 
             case .failure(let error):
                 print(error)
@@ -58,8 +56,15 @@ class DDGApiService {
     }
     
     func imageDownloader(_ imageURL: String, completion: @escaping (Data)->()) {
+        let emptyImageDefaultURL = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+        var validURL = emptyImageDefaultURL
         
-        guard let urlImage = URL(string: imageURL) else { return }
+        if !imageURL.isEmpty {
+            validURL = imageURL
+        }
+        
+        
+        guard let urlImage = URL(string: validURL) else { return }
         
         Alamofire.request(urlImage).response { (dataResponse) in
             guard let data = dataResponse.data else { return }

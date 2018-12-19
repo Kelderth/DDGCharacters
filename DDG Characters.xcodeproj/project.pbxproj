@@ -15,6 +15,9 @@
 		041E0E4521C99CBB0056F37B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E0E4321C99CBB0056F37B /* LaunchScreen.storyboard */; };
 		04B28FDE21CAF3F200E877EB /* CharacterSource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B28FDC21CAF3F200E877EB /* CharacterSource+CoreDataClass.swift */; };
 		04B28FDF21CAF3F200E877EB /* CharacterSource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B28FDD21CAF3F200E877EB /* CharacterSource+CoreDataProperties.swift */; };
+		04B28FE121CAF5DB00E877EB /* DDGPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B28FE021CAF5DB00E877EB /* DDGPersistence.swift */; };
+		04B28FE421CB0BF500E877EB /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B28FE221CB0BF500E877EB /* CharacterCollectionViewCell.swift */; };
+		04B28FE521CB0BF500E877EB /* CharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B28FE321CB0BF500E877EB /* CharacterCollectionViewCell.xib */; };
 		04D2C73F21C9A1BC000C5978 /* DDG Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04D2C73D21C9A1BC000C5978 /* DDG Characters.xcdatamodeld */; };
 		04EB8B5E21C9BCF400E32E91 /* DDGCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8B5D21C9BCF400E32E91 /* DDGCharacter.swift */; };
 		04EB8B6121C9C0AC00E32E91 /* DDGRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8B6021C9C0AC00E32E91 /* DDGRequest.swift */; };
@@ -33,6 +36,9 @@
 		041E0E4621C99CBB0056F37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B28FDC21CAF3F200E877EB /* CharacterSource+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSource+CoreDataClass.swift"; sourceTree = "<group>"; };
 		04B28FDD21CAF3F200E877EB /* CharacterSource+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSource+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04B28FE021CAF5DB00E877EB /* DDGPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGPersistence.swift; sourceTree = "<group>"; };
+		04B28FE221CB0BF500E877EB /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
+		04B28FE321CB0BF500E877EB /* CharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCollectionViewCell.xib; sourceTree = "<group>"; };
 		04D2C73B21C9A0E1000C5978 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		04D2C73E21C9A1BC000C5978 /* DDG Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DDG Characters.xcdatamodel"; sourceTree = "<group>"; };
 		04EB8B5D21C9BCF400E32E91 /* DDGCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGCharacter.swift; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				04EB8B6021C9C0AC00E32E91 /* DDGRequest.swift */,
+				04B28FE021CAF5DB00E877EB /* DDGPersistence.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -130,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				04EB8B6321C9DF1900E32E91 /* CharacterTableViewCell.swift */,
+				04B28FE221CB0BF500E877EB /* CharacterCollectionViewCell.swift */,
+				04B28FE321CB0BF500E877EB /* CharacterCollectionViewCell.xib */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -203,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B28FE521CB0BF500E877EB /* CharacterCollectionViewCell.xib in Resources */,
 				041E0E4521C99CBB0056F37B /* LaunchScreen.storyboard in Resources */,
 				041E0E4221C99CBB0056F37B /* Assets.xcassets in Resources */,
 				041E0E4021C99CBA0056F37B /* Main.storyboard in Resources */,
@@ -270,9 +280,11 @@
 				04EB8B6421C9DF1900E32E91 /* CharacterTableViewCell.swift in Sources */,
 				04B28FDF21CAF3F200E877EB /* CharacterSource+CoreDataProperties.swift in Sources */,
 				041E0E3921C99CBA0056F37B /* AppDelegate.swift in Sources */,
+				04B28FE121CAF5DB00E877EB /* DDGPersistence.swift in Sources */,
 				04D2C73F21C9A1BC000C5978 /* DDG Characters.xcdatamodeld in Sources */,
 				04EB8B6121C9C0AC00E32E91 /* DDGRequest.swift in Sources */,
 				04EB8B5E21C9BCF400E32E91 /* DDGCharacter.swift in Sources */,
+				04B28FE421CB0BF500E877EB /* CharacterCollectionViewCell.swift in Sources */,
 				041E0E3B21C99CBA0056F37B /* CharactersByNameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

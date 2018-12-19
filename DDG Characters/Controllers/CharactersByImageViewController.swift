@@ -12,11 +12,18 @@ class CharactersByImageViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var charactersList: [CharacterSource] = [CharacterSource]()
+    let dataRequest = DDGApiService()
+    let dataManager = DDGPersistence()
+    var downloadedFinished = false
+    var counterFlag = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
     }
 
 
@@ -27,7 +34,7 @@ extension CharactersByImageViewController: UICollectionViewDelegate, UICollectio
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return charactersList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
