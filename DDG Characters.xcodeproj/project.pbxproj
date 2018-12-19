@@ -14,6 +14,9 @@
 		041E0E4221C99CBB0056F37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041E0E4121C99CBB0056F37B /* Assets.xcassets */; };
 		041E0E4521C99CBB0056F37B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E0E4321C99CBB0056F37B /* LaunchScreen.storyboard */; };
 		04D2C73F21C9A1BC000C5978 /* DDG Characters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04D2C73D21C9A1BC000C5978 /* DDG Characters.xcdatamodeld */; };
+		04EB8B5E21C9BCF400E32E91 /* DDGCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8B5D21C9BCF400E32E91 /* DDGCharacter.swift */; };
+		04EB8B6121C9C0AC00E32E91 /* DDGRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8B6021C9C0AC00E32E91 /* DDGRequest.swift */; };
+		04EB8B6421C9DF1900E32E91 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB8B6321C9DF1900E32E91 /* CharacterTableViewCell.swift */; };
 		EDB4ACC56D52681A3FF04F85 /* Pods_DDG_Characters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E4E4166012248595998C16 /* Pods_DDG_Characters.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		041E0E4621C99CBB0056F37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D2C73B21C9A0E1000C5978 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		04D2C73E21C9A1BC000C5978 /* DDG Characters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DDG Characters.xcdatamodel"; sourceTree = "<group>"; };
+		04EB8B5D21C9BCF400E32E91 /* DDGCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGCharacter.swift; sourceTree = "<group>"; };
+		04EB8B6021C9C0AC00E32E91 /* DDGRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGRequest.swift; sourceTree = "<group>"; };
+		04EB8B6321C9DF1900E32E91 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
 		88247CE9374D5038F0820F5E /* Pods-DDG Characters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDG Characters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DDG Characters/Pods-DDG Characters.debug.xcconfig"; sourceTree = "<group>"; };
 		E2E4E4166012248595998C16 /* Pods_DDG_Characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DDG_Characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3070CB5726C935FF904A04C /* Pods-DDG Characters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DDG Characters.release.xcconfig"; path = "Pods/Target Support Files/Pods-DDG Characters/Pods-DDG Characters.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +72,9 @@
 		041E0E3721C99CBA0056F37B /* DDG Characters */ = {
 			isa = PBXGroup;
 			children = (
+				04EB8B6221C9DEEF00E32E91 /* cells */,
+				04EB8B5F21C9C07500E32E91 /* Services */,
+				04EB8B5C21C9BCC200E32E91 /* Models */,
 				04EB8B5B21C9AF6200E32E91 /* Controllers */,
 				041E0E3821C99CBA0056F37B /* AppDelegate.swift */,
 				041E0E3E21C99CBA0056F37B /* Main.storyboard */,
@@ -93,6 +102,30 @@
 				041E0E3C21C99CBA0056F37B /* CharactersByImageViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04EB8B5C21C9BCC200E32E91 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				04EB8B5D21C9BCF400E32E91 /* DDGCharacter.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		04EB8B5F21C9C07500E32E91 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04EB8B6021C9C0AC00E32E91 /* DDGRequest.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		04EB8B6221C9DEEF00E32E91 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				04EB8B6321C9DF1900E32E91 /* CharacterTableViewCell.swift */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 		27261A3692C2A3738D217F02 /* Pods */ = {
@@ -227,8 +260,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				041E0E3D21C99CBA0056F37B /* CharactersByImageViewController.swift in Sources */,
+				04EB8B6421C9DF1900E32E91 /* CharacterTableViewCell.swift in Sources */,
 				041E0E3921C99CBA0056F37B /* AppDelegate.swift in Sources */,
 				04D2C73F21C9A1BC000C5978 /* DDG Characters.xcdatamodeld in Sources */,
+				04EB8B6121C9C0AC00E32E91 /* DDGRequest.swift in Sources */,
+				04EB8B5E21C9BCF400E32E91 /* DDGCharacter.swift in Sources */,
 				041E0E3B21C99CBA0056F37B /* CharactersByNameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
