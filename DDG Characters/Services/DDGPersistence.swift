@@ -6,20 +6,21 @@
 //  Copyright © 2018 Kelderth. All rights reserved.
 //
 
-//import Foundation
 import UIKit
 import CoreData
 
 class DDGPersistence {
     
     func writeData(characterName: String, characterDetail: String, pictureURL: String, favorited: Bool) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+
+        // Declaring Context
+        let contextManaged = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        // persistenceContainer encapsulate the CoreData in the Application.
-        let contextManaged = appDelegate.persistentContainer.viewContext
+        // Declaring an Entity
+        let characterEntity = NSEntityDescription.entity(forEntityName: "CharacterSource", in: contextManaged)
         
-        // A description of an entity in CoreData.
-        let character = NSEntityDescription.insertNewObject(forEntityName: "CharacterSource", into: contextManaged)
+        // Creating a new Record
+        let character = NSManagedObject(entity: characterEntity!, insertInto: contextManaged)
         
         character.setValue(characterName, forKey: "characterName")
         character.setValue(characterDetail, forKey: "characterDetail")
@@ -33,22 +34,23 @@ class DDGPersistence {
     }
     
     func readData() -> [CharacterSource] {
-        var charactersLoaded: [CharacterSource] = [CharacterSource]()
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return [] }
+        // Array that will hold the fetched data
+        var dataFetched: [CharacterSource] = [CharacterSource]()
         
-        let contextManaged = appDelegate.persistentContainer.viewContext
+        // The context is created through a connection to the AppDelegate.
+        let contextManaged = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
         
-        // The data is extracted from the CoreData
-        let fetchedRequest = NSFetchRequest<NSManagedObject> (entityName: "CharacterSource")
+        // The data is fetched from the CoreData
+        let fetchedRequest = NSFetchRequest<CharacterSource>(entityName: "CharacterSource")
         
         do {
-            charactersLoaded = try contextManaged.fetch(fetchedRequest) as! [CharacterSource]
+            dataFetched = try contextManaged?.fetch(fetchedRequest) ?? []
         } catch let error as NSError {
             print("The data could not be fetched due to some errors, Reason: \(error)")
         }
         
-        return charactersLoaded
+        return dataFetched
     }
     
 }
