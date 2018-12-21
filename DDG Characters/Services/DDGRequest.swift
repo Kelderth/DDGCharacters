@@ -11,12 +11,12 @@ import Alamofire
 import SwiftyJSON
 
 typealias requestSuccessful = () -> ()
-typealias requestUnsuccessful = () -> ()
+typealias requestImageSuccessful = (Data) -> ()
 
 class DDGApiService {
     
     var success: requestSuccessful!
-    var fail: requestUnsuccessful!
+    var imageSuccess: requestImageSuccessful!
     let dataManager: DDGPersistence = DDGPersistence()
     
     func serviceRequest(onSuccess: @escaping requestSuccessful) {
@@ -50,21 +50,13 @@ class DDGApiService {
                 
             case .failure(let error):
                 print(error)
-                self.fail()
+//                self.fail()
             }
         }
     }
     
-    func imageDownloader(_ imageURL: String, completion: @escaping (Data)->()) {
-        let emptyImageDefaultURL = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-        var validURL = emptyImageDefaultURL
-        
-        if !imageURL.isEmpty {
-            validURL = imageURL
-        }
-        
-        
-        guard let urlImage = URL(string: validURL) else { return }
+    func imageDownloader(_ imageURL: String, completion: @escaping (Data) -> ()) {
+        guard let urlImage = URL(string: imageURL) else { return }
         
         Alamofire.request(urlImage).response { (dataResponse) in
             guard let data = dataResponse.data else { return }

@@ -24,8 +24,6 @@ class CharactersByNameViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-//        DDGRequest.serviceRequest(onSuccess: <#requestSuccessful#>)
-        
         setupApiRequest()
     }
 
@@ -39,15 +37,6 @@ class CharactersByNameViewController: UIViewController {
             }
         }
         
-        
-//        let success : requestSuccessful = { [unowned self] CharacterSource in
-//            DispatchQueue.main.async {
-//                self.characterSource = CharacterSource
-//                self.tableView.reloadData()
-//            }
-//        }
-    
-//        DDGRequest.success = success
     }
 
 }

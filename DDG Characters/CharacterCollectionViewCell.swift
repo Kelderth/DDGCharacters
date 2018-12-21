@@ -16,5 +16,10 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    func setup(character: CharacterSource) {
+        print(characterImageView)
+        print(characterImageView.image)
+        self.characterImageView.image = UIImage(data: character.pictureData! as Data)
+    }
 }
