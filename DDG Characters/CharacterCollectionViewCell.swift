@@ -18,8 +18,6 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(character: CharacterSource) {
-        print(characterImageView)
-        print(characterImageView.image)
         self.characterImageView.image = UIImage(data: character.pictureData! as Data)
     }
 }

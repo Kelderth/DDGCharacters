@@ -27,6 +27,8 @@ class CharactersByImageViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
+        self.collectionView.register(UINib(nibName: "CharacterCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CharacterImageCell")
+        
         downloadingCharacters()
         
     }
@@ -35,46 +37,20 @@ class CharactersByImageViewController: UIViewController {
         let characterCount = characterCounter()
         characterSource = dataManager.readData()
         
-//        for characterIndex in 0 ..< characterCount {
-//            if characterSource[characterIndex].pictureData == nil {
-//                var characterImageURL = characterSource[characterIndex].pictureURL!
-//                if characterImageURL.isEmpty {
-//                    characterImageURL = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-//                }
-//                dataRequest.imageDownloader(characterImageURL, completion: { imageData in
-//                    self.counterFlag += 1
-//                    self.characterSource[characterIndex].pictureData = imageData as NSData
-//                    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-//                    do {
-//                        try context?.save()
-//                    } catch {
-//                        print("error")
-//                    }
-//
-//                    print(self.counterFlag)
-//                    self.updateImages()
-//                })
-//            }
-//        }
-        
-        for character in characterSource {
-            if character.pictureData == nil {
-                var characterImageURL = character.pictureURL
-                
-                if characterImageURL!.isEmpty {
-                    characterImageURL = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+        for characterIndex in 0 ..< characterCount {
+            if characterSource[characterIndex].pictureData == nil {
+                var characterImageURL = characterSource[characterIndex].pictureURL!
+                if characterImageURL.isEmpty {
+                    characterImageURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
                 }
-                
-                dataRequest.imageDownloader(characterImageURL!, completion: { imageData in
-                    character.pictureData = imageData as NSData
+                dataRequest.imageDownloader(characterImageURL, completion: { imageData in
+                    self.characterSource[characterIndex].pictureData = imageData as NSData
+                    let context = UIApplication.shared.delegate as? AppDelegate
                     
-                    let delegate = (UIApplication.shared.delegate as? AppDelegate)
-                    delegate?.saveContext()
-
+                    context?.saveContext()
+                    
                     self.counterFlag += 1
-                    
-                    
-//                    print(self.counterFlag)
+                
                     self.updateImages()
                 })
             } else {
@@ -83,12 +59,33 @@ class CharactersByImageViewController: UIViewController {
             }
         }
         
+//        for character in characterSource {
+//            if character.pictureData == nil {
+//                var characterImageURL = character.pictureURL
+//
+//                if characterImageURL!.isEmpty {
+//                    characterImageURL = "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+//                }
+//
+//                dataRequest.imageDownloader(characterImageURL!, completion: { imageData in
+//                    character.pictureData = imageData as NSData
+//
+//                    let delegate = (UIApplication.shared.delegate as? AppDelegate)
+//                    delegate?.saveContext()
+//
+//                    self.counterFlag += 1
+//
+//                    self.updateImages()
+//                })
+//            } else {
+//                self.counterFlag += 1
+//                self.updateImages()
+//            }
+//        }
+        
     }
     
     func updateImages() {
-//        characterSource = dataManager.readData()
-//        self.collectionView.reloadData()
-//        print(characterSource[1].pictureData)
         DispatchQueue.main.async {
             if self.counterFlag == self.characterSource.count {
                 self.collectionView.reloadData()
@@ -110,7 +107,7 @@ class CharactersByImageViewController: UIViewController {
 
 }
 
-extension CharactersByImageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CharactersByImageViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -123,7 +120,6 @@ extension CharactersByImageViewController: UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = "CharacterImageCell"
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CharacterCollectionViewCell else { return UICollectionViewCell() }
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CharacterCollectionViewCell else { return UICollectionViewCell() }
         
