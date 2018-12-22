@@ -112,7 +112,7 @@ extension CharactersByImageViewController: UICollectionViewDelegate, UICollectio
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if counterFlag == characterSource.count {
+        if counterFlag >= characterSource.count {
             return characterSource.count
         }
         return 0
