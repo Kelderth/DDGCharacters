@@ -13,7 +13,7 @@
 		041E0E4021C99CBA0056F37B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E0E3E21C99CBA0056F37B /* Main.storyboard */; };
 		041E0E4221C99CBB0056F37B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041E0E4121C99CBB0056F37B /* Assets.xcassets */; };
 		041E0E4521C99CBB0056F37B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041E0E4321C99CBB0056F37B /* LaunchScreen.storyboard */; };
-		0426618221CDC9D300DA1C69 /* CharacterDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426618121CDC9D300DA1C69 /* CharacterDetailViewController.m */; };
+		0426618421CE0CEE00DA1C69 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426618321CE0CEE00DA1C69 /* CharacterDetailViewController.swift */; };
 		04B28FDE21CAF3F200E877EB /* CharacterSource+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B28FDC21CAF3F200E877EB /* CharacterSource+CoreDataClass.swift */; };
 		04B28FDF21CAF3F200E877EB /* CharacterSource+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B28FDD21CAF3F200E877EB /* CharacterSource+CoreDataProperties.swift */; };
 		04B28FE121CAF5DB00E877EB /* DDGPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B28FE021CAF5DB00E877EB /* DDGPersistence.swift */; };
@@ -35,9 +35,7 @@
 		041E0E4121C99CBB0056F37B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041E0E4421C99CBB0056F37B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041E0E4621C99CBB0056F37B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0426617F21CDC9D300DA1C69 /* DDG Characters-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DDG Characters-Bridging-Header.h"; sourceTree = "<group>"; };
-		0426618021CDC9D300DA1C69 /* CharacterDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CharacterDetailViewController.h; sourceTree = "<group>"; };
-		0426618121CDC9D300DA1C69 /* CharacterDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CharacterDetailViewController.m; sourceTree = "<group>"; };
+		0426618321CE0CEE00DA1C69 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		04B28FDC21CAF3F200E877EB /* CharacterSource+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSource+CoreDataClass.swift"; sourceTree = "<group>"; };
 		04B28FDD21CAF3F200E877EB /* CharacterSource+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSource+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04B28FE021CAF5DB00E877EB /* DDGPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGPersistence.swift; sourceTree = "<group>"; };
@@ -114,9 +112,7 @@
 			children = (
 				041E0E3A21C99CBA0056F37B /* CharactersByNameViewController.swift */,
 				041E0E3C21C99CBA0056F37B /* CharactersByImageViewController.swift */,
-				0426618021CDC9D300DA1C69 /* CharacterDetailViewController.h */,
-				0426618121CDC9D300DA1C69 /* CharacterDetailViewController.m */,
-				0426617F21CDC9D300DA1C69 /* DDG Characters-Bridging-Header.h */,
+				0426618321CE0CEE00DA1C69 /* CharacterDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -284,11 +280,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B28FDE21CAF3F200E877EB /* CharacterSource+CoreDataClass.swift in Sources */,
+				0426618421CE0CEE00DA1C69 /* CharacterDetailViewController.swift in Sources */,
 				041E0E3D21C99CBA0056F37B /* CharactersByImageViewController.swift in Sources */,
 				04EB8B6421C9DF1900E32E91 /* CharacterTableViewCell.swift in Sources */,
 				04B28FDF21CAF3F200E877EB /* CharacterSource+CoreDataProperties.swift in Sources */,
 				041E0E3921C99CBA0056F37B /* AppDelegate.swift in Sources */,
-				0426618221CDC9D300DA1C69 /* CharacterDetailViewController.m in Sources */,
 				04B28FE121CAF5DB00E877EB /* DDGPersistence.swift in Sources */,
 				04D2C73F21C9A1BC000C5978 /* DDG Characters.xcdatamodeld in Sources */,
 				04EB8B6121C9C0AC00E32E91 /* DDGRequest.swift in Sources */,
@@ -450,7 +446,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KelderthLabs.DDG-Characters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DDG Characters/Controllers/DDG Characters-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,7 +467,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KelderthLabs.DDG-Characters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DDG Characters/Controllers/DDG Characters-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

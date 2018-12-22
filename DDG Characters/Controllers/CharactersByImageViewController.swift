@@ -128,4 +128,14 @@ extension CharactersByImageViewController: UICollectionViewDelegate, UICollectio
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        guard let destination = storyboard.instantiateViewController(withIdentifier: "CharacterDetails") as? CharacterDetailViewController else { return }
+        
+        destination.characterName = characterSource[indexPath.row].characterName!
+                
+        navigationController?.pushViewController(destination, animated: true)
+    }
 }

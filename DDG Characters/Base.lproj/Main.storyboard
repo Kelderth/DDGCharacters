@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGZ-wW-CHv">
-                                                    <rect key="frame" x="10" y="5" width="394" height="39.5"/>
+                                                    <rect key="frame" x="10" y="5" width="355" height="39.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -120,12 +120,12 @@
         <!--Character Detail View Controller-->
         <scene sceneID="7Hl-CP-ky2">
             <objects>
-                <viewController id="YBa-RJ-3Lm" customClass="CharacterDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharacterDetails" id="YBa-RJ-3Lm" customClass="CharacterDetailViewController" customModule="DDG_Characters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ulx-og-mFA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YoN-MC-FPp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YoN-MC-FPp">
                                 <rect key="frame" x="20" y="84" width="335" height="190.5"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="dJn-gd-2dn">
@@ -159,6 +159,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BWb-LY-bad"/>
                     </view>
+                    <connections>
+                        <outlet property="characterImageView" destination="YoN-MC-FPp" id="GXw-51-x3M"/>
+                        <outlet property="detailLabel" destination="4gH-NT-Vlz" id="XEb-U9-Tws"/>
+                        <outlet property="nameLabel" destination="6Jy-fi-UHT" id="31Y-76-RDb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fsV-im-DyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

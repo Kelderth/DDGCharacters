@@ -65,5 +65,16 @@ extension CharactersByNameViewController: UITableViewDelegate, UITableViewDataSo
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        guard let destination = storyboard.instantiateViewController(withIdentifier: "CharacterDetails") as? CharacterDetailViewController else { return }
+        
+        destination.characterName = characterSource[indexPath.row].characterName!
+        
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    
     
 }
